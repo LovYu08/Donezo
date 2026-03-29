@@ -14,7 +14,7 @@
   <nav class="navbar">
     <div class="container nav-container">
       <a href="index.html" class="nav-logo">Donezo</a>
-      <button class="hamburger" id="hamburger">â˜°</button>
+      <button class="hamburger" id="hamburger">☰</button>
       <ul class="nav-menu" id="nav-menu">
         <li><a href="index.html" class="nav-link">Dashboard</a></li>
         <li><a href="productivity.html" class="nav-link active">Productivity</a></li>
@@ -31,11 +31,11 @@
       <!-- Sidebar Tabs -->
       <aside class="prod-sidebar">
         <ul class="prod-menu">
-          <li class="prod-tab active" data-target="sec-todo">ðŸ“‹ To-Do List</li>
-          <li class="prod-tab" data-target="sec-pomodoro">â±ï¸ Study Timer</li>
-          <li class="prod-tab" data-target="sec-habits">ðŸ”¥ Habits</li>
-          <li class="prod-tab" data-target="sec-planner">ðŸ“… Planner</li>
-          <li class="prod-tab" data-target="sec-notes">ðŸ““ Notes</li>
+          <li class="prod-tab active" data-target="sec-todo">📋 To-Do List</li>
+          <li class="prod-tab" data-target="sec-pomodoro">⏱️ Study Timer</li>
+          <li class="prod-tab" data-target="sec-habits">🔥 Habits</li>
+          <li class="prod-tab" data-target="sec-planner">📅 Planner</li>
+          <li class="prod-tab" data-target="sec-notes">📓 Notes</li>
         </ul>
       </aside>
 
@@ -44,7 +44,7 @@
         
         <!-- To-Do Section -->
         <div id="sec-todo" class="prod-section active">
-          <h2 class="section-title">ðŸ“‹ To-Do List</h2>
+          <h2 class="section-title">📋 To-Do List</h2>
           <p class="text-muted">Manage your daily tasks and keep track of your assignments seamlessly.</p>
           <div style="display: flex; gap: 10px; margin-top: 20px;">
             <input type="text" id="todo-input" class="form-control" placeholder="Add a new task..." autocomplete="off">
@@ -57,7 +57,7 @@
 
         <!-- Pomodoro Timer Section -->
         <div id="sec-pomodoro" class="prod-section">
-           <h2 class="section-title">â±ï¸ Study Timer</h2>
+           <h2 class="section-title">⏱️ Study Timer</h2>
            <p class="text-muted">Stay focused using our Pomodoro timer. Work in intervals, take short breaks.</p>
            <div class="timer-container">
               <div id="time-display" class="timer-display">25:00</div>
@@ -77,7 +77,7 @@
 
         <!-- Habits Section -->
         <div id="sec-habits" class="prod-section">
-          <h2 class="section-title">ðŸ”¥ Habit Tracker</h2>
+          <h2 class="section-title">🔥 Habit Tracker</h2>
           <p class="text-muted">Build and track your daily habits. Your streaks reset daily.</p>
           <div style="display: flex; gap: 10px; margin-top: 20px;">
             <input type="text" id="habit-input" class="form-control" placeholder="New habit to build..." autocomplete="off">
@@ -90,7 +90,7 @@
 
         <!-- Planner Section -->
         <div id="sec-planner" class="prod-section">
-          <h2 class="section-title">ðŸ“… Daily Planner</h2>
+          <h2 class="section-title">📅 Daily Planner</h2>
           <p class="text-muted">Schedule your day by setting specific times for your routines and classes.</p>
           <div style="display: flex; gap: 10px; margin-top: 20px;">
             <input type="time" id="plan-time" class="form-control" style="width: 140px;">
@@ -104,7 +104,7 @@
 
         <!-- Notes Section -->
         <div id="sec-notes" class="prod-section">
-          <h2 class="section-title">ðŸ““ Auto-Saving Notes</h2>
+          <h2 class="section-title">📓 Auto-Saving Notes</h2>
           <p class="text-muted">Jot down quick thoughts. It saves automatically as you type!</p>
           <textarea id="notes-area" class="form-control" style="height: 350px; margin-top: 15px;" placeholder="Start typing here..."></textarea>
         </div>
