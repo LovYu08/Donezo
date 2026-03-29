@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Name Picker - Donezo</title>
+  <meta name="description" content="Randomly pick a name from a list for presentations or giveaways.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Banner Ad Placeholder -->
+  <div class="ad-container top-ad">Top Banner Ad Space (728x90)</div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo">Donezo</a>
+      <button class="hamburger" id="hamburger">â˜°</button>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html" class="nav-link">Dashboard</a></li>
+        <li><a href="productivity.html" class="nav-link">Productivity</a></li>
+        <li><a href="tools.html" class="nav-link">Tools</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container main-content">
+    <div class="text-center mb-2">
+      <h1 class="section-title" style="justify-content: center;">ðŸŽ¯ Random Name Picker</h1>
+      <p class="text-muted">Need to make a fair choice? Paste your list and we'll pick for you.</p>
+    </div>
+
+    <div class="tool-wrapper" id="picker-tool">
+      <div class="form-group">
+        <label class="form-label" for="names-input">Enter Names (one per line or comma-separated)</label>
+        <textarea id="names-input" class="form-control" placeholder="Alice&#10;Bob&#10;Charlie..."></textarea>
+      </div>
+      
+      <div class="text-center">
+        <button id="pick-btn" class="btn" style="width: 100%; max-width: 300px; padding: 15px; font-size: 1.1rem;">Pick Randomly ðŸŽ²</button>
+      </div>
+
+      <div id="picker-result" class="result-box">
+        <!-- Result appears here -->
+        <span class="text-muted" style="font-weight: 400;">The winner will appear here.</span>
+      </div>
+    </div>
+
+    <!-- In-Content Ad Placeholder -->
+    <div class="ad-container mid-ad">In-Content Ad Space</div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">Donezo</div>
+        <ul class="footer-nav">
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 Donezo. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
