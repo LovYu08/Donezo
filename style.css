@@ -81,6 +81,14 @@ a { text-decoration: none; color: inherit; }
   padding: 0 24px;
 }
 
+.tagline {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.3px;
+  margin-top: 8px;
+}
+
 .text-center { text-align: center; }
 .text-muted { color: var(--text-muted); }
 .mb-1 { margin-bottom: 1rem; }
@@ -112,7 +120,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 .btn:active {
-  transform: translateY(0);
+  transform: translateY(0) scale(0.98);
 }
 
 .btn-secondary { 
@@ -155,10 +163,28 @@ a { text-decoration: none; color: inherit; }
 .nav-logo {
   font-size: 1.5rem;
   font-weight: 900;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.nav-logo:hover {
+  opacity: 0.85;
+  transform: scale(0.98);
+}
+
+.nav-logo-text {
   background: linear-gradient(135deg, var(--primary), var(--secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   letter-spacing: -0.5px;
+}
+
+.nav-logo img {
+  height: 32px;
+  width: auto;
 }
 
 .nav-right {
@@ -345,7 +371,7 @@ body.dark-mode .hero::before {
 }
 
 .card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-4px) scale(1.01);
   box-shadow: var(--shadow-hover);
   border-color: var(--primary);
 }
@@ -595,11 +621,63 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   border-bottom: 1px solid var(--border-color); padding-bottom: 30px; margin-bottom: 30px; 
   flex-wrap: wrap; gap: 30px; 
 }
-.footer-logo { font-size: 1.75rem; font-weight: 900; color: var(--text-main); }
+.footer-logo { 
+  font-size: 1.75rem; 
+  font-weight: 900; 
+  color: var(--text-main); 
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.footer-logo img {
+  height: 36px;
+  width: auto;
+}
 .footer-nav { display: flex; gap: 30px; list-style: none; }
 .footer-nav a { color: var(--text-muted); font-weight: 500; transition: var(--transition); }
 .footer-nav a:hover { color: var(--primary); }
 .footer-bottom { text-align: center; color: var(--text-muted); font-size: 0.95rem; }
+
+/* ==========================================================================
+   Toast Notifications & Trust Signals
+   ========================================================================== */
+#toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 9999;
+}
+
+.toast {
+  background: var(--text-main);
+  color: var(--bg-color);
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideInToast 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+@keyframes slideInToast {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.toast.hiding {
+  animation: fadeOutToast 0.3s ease forwards;
+}
+
+@keyframes fadeOutToast {
+  to { opacity: 0; transform: translateY(10px); }
+}
 
 /* ==========================================================================
    Responsiveness

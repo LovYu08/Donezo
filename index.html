@@ -1,22 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Donezo - Your Daily Productivity Hub</title>
   <meta name="description" content="A complete suite of productivity and utility tools for students.">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/favicon.png" type="image/png">
 </head>
+
 <body>
 
-  <!-- Top Banner Ad Placeholder --> 
+  <!-- Top Banner Ad Placeholder -->
   <div class="ad-container top-ad">Top Banner Ad Space (728x90)</div>
 
   <!-- Navbar -->
   <nav class="navbar">
     <div class="container nav-container">
-      <a href="index.html" class="nav-logo">Donezo</a>
+      <a href="index.html" class="nav-logo">
+        <img src="assets/logo.png" alt="Donezo Logo">
+        <span class="nav-logo-text">Donezo</span>
+      </a>
       <button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
       <div class="nav-right" id="nav-right">
         <ul class="nav-menu" id="nav-menu">
@@ -34,8 +41,10 @@
 
   <!-- Hero / Welcome -->
   <header class="hero container">
-    <h1>Your Daily Productivity Hub</h1>
-    <p>Organize your tasks, build good habits, manage your study time, and access essential utility tools all in one perfectly designed place.</p>
+    <h1 id="welcome-message">Your Daily Productivity Hub</h1>
+    <p class="tagline">Built for productivity and everyday efficiency.</p>
+    <p>Organize your tasks, build good habits, manage your study time, and access essential utility tools all in one
+      perfectly designed place.</p>
     <div class="hero-actions">
       <a href="productivity.html" class="btn">🚀 Enter Productivity Hub</a>
       <a href="tools.html" class="btn btn-secondary">🧰 Explore Tools</a>
@@ -43,9 +52,37 @@
   </header>
 
   <main class="container main-content">
-    
-    <h2 class="section-title">✨ Quick Access</h2>
-    
+
+    <!-- Progress Dashboard & Daily Quote -->
+    <div class="cards-grid mb-2" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+      
+      <!-- Daily Motivation -->
+      <div class="card" style="display: flex; justify-content: center; background: rgba(79,70,229,0.03); border: 1px dashed var(--primary);">
+        <h3 class="card-title" style="font-size: 1.25rem;">Daily Motivation</h3>
+        <div id="daily-quote" style="margin-top: 12px; font-weight: 500; line-height: 1.6;">
+          <em class="text-muted">Loading quote...</em>
+        </div>
+      </div>
+
+      <!-- Quick Stats -->
+      <div class="card" style="display: flex; flex-direction: column; justify-content: center; gap: 16px;">
+        <div id="streak-indicator" style="font-size: 1.1rem; color: var(--secondary); font-weight: 500;">
+          <!-- JS injected streak -->
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 8px;">
+          <span class="text-muted">Stored Tasks</span>
+          <strong id="dash-tasks" style="font-size: 1.25rem; color: var(--primary);">0</strong>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span class="text-muted">Habits Today</span>
+          <strong id="dash-habits" style="font-size: 1.25rem; color: var(--primary);">0 / 0</strong>
+        </div>
+      </div>
+      
+    </div>
+
+    <h2 class="section-title mt-2">✨ Quick Access</h2>
+
     <div class="cards-grid mb-2">
       <!-- Productivity Cards -->
       <a href="productivity.html" class="card">
@@ -92,7 +129,10 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
-        <div class="footer-logo">Donezo</div>
+        <div class="footer-logo">
+          <img src="assets/logo.png" alt="Donezo Logo">
+          <span class="footer-logo-text">Donezo</span>
+        </div>
         <ul class="footer-nav">
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
@@ -100,11 +140,12 @@
         </ul>
       </div>
       <div class="footer-bottom">
-        &copy; 2026 Donezo. All rights reserved. Built for students.
+        &copy; 2026 Donezo. All rights reserved. Built for productivity and everyday efficiency.
       </div>
     </div>
   </footer>
 
   <script src="script.js"></script>
 </body>
+
 </html>

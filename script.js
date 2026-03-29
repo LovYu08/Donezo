@@ -21,6 +21,89 @@ document.addEventListener('DOMContentLoaded', () => {
     set: (key, val) => localStorage.setItem(key, typeof val === 'string' ? val : JSON.stringify(val))
   };
 
+  // --- Toast Notification System ---
+  window.showToast = (msg) => {
+    let container = document.getElementById('toast-container');
+    if (!container) {
+      container = document.createElement('div');
+      container.id = 'toast-container';
+      document.body.appendChild(container);
+    }
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.innerHTML = `✅ <span>${msg}</span>`;
+    container.appendChild(toast);
+
+    setTimeout(() => {
+      toast.classList.add('hiding');
+      toast.addEventListener('animationend', () => toast.remove());
+    }, 2500);
+  };
+
+  // --- Retention Features & Trust Signals ---
+  const todayDateStr = new Date().toDateString();
+
+  // Streak Tracker
+  let streakData = Store.get('hub_streak', { count: 0, lastVisit: null });
+  if (streakData.lastVisit !== todayDateStr) {
+    if (streakData.lastVisit) {
+      const lastVisitDate = new Date(streakData.lastVisit);
+      const diffTime = Math.abs(new Date() - lastVisitDate);
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      if (diffDays === 1) streakData.count += 1; // Consecutive day
+      else if (diffDays > 1) streakData.count = 1; // Streak broken
+    } else {
+      streakData.count = 1; // First visit
+    }
+    streakData.lastVisit = todayDateStr;
+    Store.set('hub_streak', streakData);
+  }
+  const streakEl = document.getElementById('streak-indicator');
+  if (streakEl) streakEl.innerHTML = `🔥 Current streak: <strong>${streakData.count} ${streakData.count === 1 ? 'day' : 'days'}</strong>`;
+
+  // Daily Quote
+  const quotes = [
+    { text: "We are what we repeatedly do. Excellence, then, is not an act, but a habit.", author: "Will Durant" },
+    { text: "You do not rise to the level of your goals. You fall to the level of your systems.", author: "James Clear" },
+    { text: "Lost time is never found again.", author: "Benjamin Franklin" },
+    { text: "Amateurs sit and wait for inspiration, the rest of us just get up and go to work.", author: "Stephen King" },
+    { text: "Focus on being productive instead of busy.", author: "Tim Ferriss" },
+    { text: "It is not that we have a short time to live, but that we waste a lot of it.", author: "Seneca" },
+    { text: "Concentrate all your thoughts upon the work at hand. The sun's rays do not burn until brought to a focus.", author: "Alexander Graham Bell" },
+    { text: "Action is the foundational key to all success.", author: "Pablo Picasso" }
+  ];
+  
+  const quoteEl = document.getElementById('daily-quote');
+  if (quoteEl) {
+    const start = new Date(new Date().getFullYear(), 0, 0);
+    const diff = (new Date() - start) + ((start.getTimezoneOffset() - new Date().getTimezoneOffset()) * 60 * 1000);
+    const oneDay = 1000 * 60 * 60 * 24;
+    const dayOfYear = Math.floor(diff / oneDay);
+    const dailyQuote = quotes[dayOfYear % quotes.length];
+    quoteEl.innerHTML = `<em style="font-size:1.1rem; color:var(--primary);">"${dailyQuote.text}"</em> <br><span style="font-weight: 600; font-size: 0.95rem; color: var(--text-muted);">&mdash; ${dailyQuote.author}</span>`;
+  }
+
+  // Welcome Message
+  const welcomeEl = document.getElementById('welcome-message');
+  if (welcomeEl) {
+    const hour = new Date().getHours();
+    let greeting = 'Good evening';
+    if (hour < 12) greeting = 'Good morning';
+    else if (hour < 18) greeting = 'Good afternoon';
+    welcomeEl.textContent = greeting + ", ready to finish your tasks?";
+  }
+
+  // Progress Dashboard Summary
+  const dashTasks = document.getElementById('dash-tasks');
+  const dashHabits = document.getElementById('dash-habits');
+  if (dashTasks && dashHabits) {
+    const todosCount = Store.get('hub_todos', []).length;
+    dashTasks.textContent = todosCount;
+    const habitsArr = Store.get('hub_habits', []);
+    const completedHabits = habitsArr.filter(h => h.completedToday).length;
+    dashHabits.textContent = `${completedHabits} / ${habitsArr.length}`;
+  }
+
   const themeToggle = document.getElementById('theme-toggle');
   const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
   
@@ -92,6 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
           todos[e.target.dataset.index].completed = e.target.checked;
           Store.set('hub_todos', todos);
           renderTodos();
+          if (e.target.checked && window.showToast) window.showToast("Task marked complete");
         });
       });
       document.querySelectorAll('.todo-delete').forEach(btn => {
@@ -321,6 +405,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Auto-save
     notesArea.addEventListener('input', () => {
       Store.set('hub_notes', notesArea.value);
+    });
+    notesArea.addEventListener('blur', () => {
+      if (window.showToast) window.showToast("Notes saved automatically");
     });
   }
 

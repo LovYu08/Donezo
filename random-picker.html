@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Random Name Picker - Donezo</title>
   <meta name="description" content="Randomly pick a name from a list for presentations or giveaways.">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/favicon.png" type="image/png">
 </head>
+
 <body>
 
   <!-- Top Banner Ad Placeholder -->
@@ -16,7 +20,10 @@
   <!-- Navbar -->
   <nav class="navbar">
     <div class="container nav-container">
-      <a href="index.html" class="nav-logo">Donezo</a>
+      <a href="index.html" class="nav-logo">
+        <img src="assets/logo.png" alt="Donezo Logo">
+        <span class="nav-logo-text">Donezo</span>
+      </a>
       <button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
       <div class="nav-right" id="nav-right">
         <ul class="nav-menu" id="nav-menu">
@@ -43,9 +50,10 @@
         <label class="form-label" for="names-input">Enter Names (one per line or comma-separated)</label>
         <textarea id="names-input" class="form-control" placeholder="Alice&#10;Bob&#10;Charlie..."></textarea>
       </div>
-      
+
       <div class="text-center">
-        <button id="pick-btn" class="btn" style="width: 100%; max-width: 300px; padding: 15px; font-size: 1.1rem;">Pick Randomly 🎲</button>
+        <button id="pick-btn" class="btn" style="width: 100%; max-width: 300px; padding: 15px; font-size: 1.1rem;">Pick
+          Randomly 🎲</button>
       </div>
 
       <div id="picker-result" class="result-box">
@@ -62,7 +70,10 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
-        <div class="footer-logo">Donezo</div>
+        <div class="footer-logo">
+          <img src="assets/logo.png" alt="Donezo Logo">
+          <span class="footer-logo-text">Donezo</span>
+        </div>
         <ul class="footer-nav">
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
@@ -70,11 +81,12 @@
         </ul>
       </div>
       <div class="footer-bottom">
-        &copy; 2026 Donezo. All rights reserved.
+        &copy; 2026 Donezo. All rights reserved. Built for productivity and everyday efficiency.
       </div>
     </div>
   </footer>
 
   <script src="script.js"></script>
 </body>
+
 </html>
