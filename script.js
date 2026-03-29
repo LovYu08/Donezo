@@ -4,19 +4,45 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1. Global: Mobile Navbar & LocalStorage Helpers
   // ==========================================================================
   const hamburger = document.getElementById('hamburger');
-  const navMenu = document.getElementById('nav-menu');
+  const navRight = document.getElementById('nav-right');
 
-  if (hamburger && navMenu) {
+  if (hamburger && navRight) {
     hamburger.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
-      hamburger.innerHTML = navMenu.classList.contains('active') ? '✖' : '☰';
+      navRight.classList.toggle('active');
+      hamburger.innerHTML = navRight.classList.contains('active') ? '✖' : '☰';
     });
   }
 
   const Store = {
-    get: (key, defaultVal) => JSON.parse(localStorage.getItem(key)) || defaultVal,
-    set: (key, val) => localStorage.setItem(key, JSON.stringify(val))
+    get: (key, defaultVal) => {
+      const val = localStorage.getItem(key);
+      try { return val ? JSON.parse(val) : defaultVal; } catch(e) { return val || defaultVal; }
+    },
+    set: (key, val) => localStorage.setItem(key, typeof val === 'string' ? val : JSON.stringify(val))
   };
+
+  const themeToggle = document.getElementById('theme-toggle');
+  const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+  
+  const currentTheme = Store.get('theme', prefersDarkScheme.matches ? 'dark' : 'light');
+  if (currentTheme === 'dark') {
+    document.body.classList.add('dark-mode');
+    if (themeToggle) themeToggle.textContent = '☀️';
+  }
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      let theme = 'light';
+      if (document.body.classList.contains('dark-mode')) {
+        theme = 'dark';
+        themeToggle.textContent = '☀️';
+      } else {
+        themeToggle.textContent = '🌙';
+      }
+      Store.set('theme', theme);
+    });
+  }
 
   // ==========================================================================
   // 2. Productivity Hub Logic
