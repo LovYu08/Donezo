@@ -697,6 +697,9 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   .nav-menu { flex-direction: column; width: 100%; align-items: flex-start; gap: 20px;}
   .nav-link { font-size: 1.25rem; width: 100%; display: block; }
   
+  .nav-logo { font-size: 1.25rem; gap: 8px; }
+  .nav-logo img { height: 26px; }
+  
   .theme-toggle { margin-top: 20px; align-self: flex-start; }
   
   .prod-layout { grid-template-columns: 1fr; gap: 24px; }
@@ -709,6 +712,9 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   .hero h1 { font-size: 2.5rem; }
   
   .footer-content { flex-direction: column; text-align: center; }
+  .footer-logo { justify-content: center; font-size: 1.5rem; }
+  .footer-logo img { height: 28px; }
+  
   .timer-display { font-size: 5rem; }
   .pass-options { grid-template-columns: 1fr; }
   .todo-item { flex-direction: column; align-items: flex-start; }
