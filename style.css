@@ -175,9 +175,11 @@ a { text-decoration: none; color: inherit; }
   transform: scale(0.98);
 }
 
-.nav-logo-text {
+.nav-logo-text,
+.footer-logo-text {
   background: linear-gradient(135deg, var(--primary), var(--secondary));
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   letter-spacing: -0.5px;
 }
