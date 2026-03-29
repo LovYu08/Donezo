@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grade Calculator - Donezo</title>
+  <meta name="description" content="Calculate your average grades quickly and accurately.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo">Donezo</a>
+      <button class="hamburger" id="hamburger">☰</button>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html" class="nav-link">Dashboard</a></li>
+        <li><a href="productivity.html" class="nav-link">Productivity</a></li>
+        <li><a href="tools.html" class="nav-link">Tools</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container main-content">
+    <div class="text-center mb-2">
+      <h1 class="section-title" style="justify-content: center;">📝 Grade Calculator</h1>
+      <p class="text-muted">Enter your percentage grades below to compute your final average.</p>
+    </div>
+
+    <div class="tool-wrapper" id="grade-tool">
+      
+      <div id="grade-inputs">
+        <!-- JS populates initial row -->
+        <div class="grade-row">
+          <div class="form-group">
+             <input type="text" class="form-control" placeholder="Subject Name (Optional)">
+          </div>
+          <div class="form-group">
+            <input type="number" class="form-control grade-val" placeholder="Grade (0-100)" min="0" max="100">
+          </div>
+          <!-- No remove button for the first row to ensure they don't break layout -->
+        </div>
+      </div>
+
+      <div class="mb-2">
+        <button id="add-grade-btn" class="btn btn-secondary btn-sm" style="margin-right: 10px;">+ Add Subject</button>
+      </div>
+
+      <div class="text-center mb-2" style="border-top: 1px solid #e2e8f0; padding-top: 20px;">
+        <button id="calc-grade-btn" class="btn" style="width: 100%; max-width: 300px; padding: 15px; font-size: 1.1rem;">Calculate Average 🧮</button>
+      </div>
+
+      <div id="grade-result" class="result-box">
+        <!-- Results appear here -->
+        <span class="text-muted" style="font-weight: 400;">Your calculated average will appear here.</span>
+      </div>
+
+    </div>
+
+    <!-- In-Content Ad Placeholder -->
+    <div class="ad-container mid-ad">In-Content Ad Space</div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">Donezo</div>
+        <ul class="footer-nav">
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 Donezo. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
